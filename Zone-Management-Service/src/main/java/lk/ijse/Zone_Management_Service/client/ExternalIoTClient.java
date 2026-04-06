@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.Map;
 
-@FeignClient(name = "external-iot-service", url = "${iot.external.base-url}")
+@FeignClient(
+        name = "external-iot-service",
+        url = "${iot.external.base-url:http://104.211.95.241:8080/api}"
+)
 public interface ExternalIoTClient {
 
     @PostMapping("/devices")
