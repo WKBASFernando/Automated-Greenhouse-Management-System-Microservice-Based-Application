@@ -1,6 +1,6 @@
-package lk.ijse.Zone_Management_Service.controller;
+package lk.ijse.Identity_Service.controller;
 
-import lk.ijse.Zone_Management_Service.util.JwtUtil;
+import lk.ijse.Identity_Service.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

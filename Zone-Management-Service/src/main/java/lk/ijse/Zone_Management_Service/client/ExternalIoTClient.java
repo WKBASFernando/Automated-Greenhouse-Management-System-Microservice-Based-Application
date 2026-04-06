@@ -9,7 +9,7 @@ import java.util.Map;
 
 @FeignClient(
         name = "external-iot-service",
-        url = "${iot.external.base-url:http://104.211.95.241:8080/api}"
+        url = "${iot.external.base-url:http://localhost:8090/api}"
 )
 public interface ExternalIoTClient {
 

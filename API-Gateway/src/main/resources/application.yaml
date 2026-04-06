@@ -18,8 +18,8 @@ spring:
 
       routes:
         # 1. Route for Identity/Auth Service
-        - id: identity-service
-          uri: lb://IDENTITY-SERVICE
+        - id: zone-management-auth
+          uri: lb://ZONE-MANAGEMENT-SERVICE
           predicates:
             - Path=/api/v1/auth/**
 

@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: Identity-Service
+  cloud:
+    gateway:
+      routes:
+        - id: zone-management-service
+          uri: lb://ZONE-MANAGEMENT-SERVICE
+          predicates:
+            - Path=/api/zones/**
+          filters:
+            - AuthenticationFilter # <--- This protects the route!
+  datasource:
+    url: jdbc:mysql://localhost:3306/agms_identity_db?createDatabaseIfNotExist=true
+    username: root
+    password: Ijse@1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+server:
+  port: 8086
