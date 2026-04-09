@@ -5,7 +5,6 @@ spring:
   application:
     name: api-gateway
 
-  # Connects to your Config Server on Port 8888
   config:
     import: "optional:configserver:http://localhost:8888"
 
@@ -19,31 +18,26 @@ spring:
       routes:
         # 1. Route for Identity/Auth Service
         - id: zone-management-auth
-          uri: lb://ZONE-MANAGEMENT-SERVICE
+          uri: lb://zone-management-service
           predicates:
             - Path=/api/v1/auth/**
 
         # 2. Route for Zone Management
         - id: zone-management-service
-          uri: lb://ZONE-MANAGEMENT-SERVICE
+          uri: lb://zone-management-service
           predicates:
             - Path=/api/zones/**
 
         # 3. Route for Local IoT Backend
         - id: iot-backend
-          uri: lb://IOT-SERVICE
+          uri: lb://iot-service
           predicates:
             - Path=/api/devices/**
 
+        # 4. Route for Sensor Telemetry
         - id: sensor-telemetry-service
           uri: lb://SENSOR-TELEMETRY-SERVICE
           predicates:
-            # Make sure this matches your Postman URL
-            - Path=/api/v1/telemetry/** ```
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
-    fetch-registry: true
+            - Path=/api/v1/telemetry/**
+          filters:
+            - AuthenticationFilter
