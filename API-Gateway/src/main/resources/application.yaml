@@ -39,5 +39,10 @@ spring:
           uri: lb://SENSOR-TELEMETRY-SERVICE
           predicates:
             - Path=/api/v1/telemetry/**
-          filters:
-            - AuthenticationFilter
+
+
+        # 5. Route for Crop Management
+        - id: crop-management-service
+          uri: lb://CROP-MANAGEMENT-SERVICE
+          predicates:
+            - Path=/api/v1/crops/**
