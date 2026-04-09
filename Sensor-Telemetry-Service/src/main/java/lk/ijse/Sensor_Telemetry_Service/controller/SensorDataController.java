@@ -20,7 +20,6 @@ public class SensorDataController {
             String result = sensorDataService.processReadings(dataDTO);
             return ResponseEntity.ok(result);
         } catch (Exception e) {
-            // This handles cases where the Zone ID doesn't exist or Feign fails
             return ResponseEntity.status(404).body("Error: " + e.getMessage());
         }
     }
