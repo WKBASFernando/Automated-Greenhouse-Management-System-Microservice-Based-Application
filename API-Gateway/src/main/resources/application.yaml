@@ -35,6 +35,12 @@ spring:
           predicates:
             - Path=/api/devices/**
 
+        - id: sensor-telemetry-service
+          uri: lb://SENSOR-TELEMETRY-SERVICE
+          predicates:
+            # Make sure this matches your Postman URL
+            - Path=/api/v1/telemetry/** ```
+
 eureka:
   client:
     service-url:

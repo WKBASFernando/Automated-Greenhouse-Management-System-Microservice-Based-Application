@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "ZONE-MANAGEMENT-SERVICE")
 public interface ZoneClient {
-    @GetMapping("/api/zones/{id}")
+    @GetMapping("/api/zones/{id}") // Remove /v1/ if it's not in the original controller
     ZoneDTO getZoneDetails(@PathVariable("id") String id);
 }

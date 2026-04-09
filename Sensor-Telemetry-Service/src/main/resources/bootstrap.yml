@@ -1,10 +1,7 @@
-server:
-  port: 8082
-
 spring:
   application:
     name: sensor-telemetry-service
   cloud:
     config:
       uri: http://localhost:8888
-      fail-fast: true
+      fail-fast: true # Stops the app immediately if Config Server is down
