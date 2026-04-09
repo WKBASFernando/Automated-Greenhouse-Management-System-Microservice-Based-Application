@@ -13,9 +13,10 @@ import java.time.LocalDateTime;
 public class AutomationUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long unitId;
+    private Long id;
     private Long zoneId;
-    private String equipmentType; // e.g., "IRRIGATION", "VENTILATION"
-    private String status;        // "ON", "OFF", "STANDBY"
-    private LocalDateTime lastTriggered;
+    private String deviceType;
+    private String actionStatus;
+    private String triggerReason;
+    private LocalDateTime timestamp;
 }
