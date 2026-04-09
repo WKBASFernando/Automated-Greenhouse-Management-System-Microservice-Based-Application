@@ -46,3 +46,11 @@ spring:
           uri: lb://CROP-MANAGEMENT-SERVICE
           predicates:
             - Path=/api/v1/crops/**
+
+        # 6. Route for Automation & Control Service
+        - id: automation-control-service
+          uri: lb://AUTOMATION-CONTROL-SERVICE
+          predicates:
+            - Path=/api/v1/automation/**
+          filters:
+            - AuthenticationFilter
