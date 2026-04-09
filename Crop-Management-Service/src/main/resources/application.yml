@@ -1,0 +1,24 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: crop-management-service
+
+  # This tells Spring Boot 3 where to find your Git-based configs
+  config:
+    import: "optional:configserver:http://localhost:8888"
+
+  # Clean up logs for better readability during the viva
+  main:
+    log-startup-info: true
+    allow-bean-definition-overriding: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true

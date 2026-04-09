@@ -1,5 +1,6 @@
 package lk.ijse.Crop_Management_Service.client;
 
+import lk.ijse.Crop_Management_Service.dto.ZoneDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,5 +12,5 @@ public interface ZoneClient {
     Object getZoneDetails(@PathVariable("id") Long id);
 
     @GetMapping("/api/zones/{id}")
-    ResponseEntity<?> getZoneById(@PathVariable("id") Long id);
+    ResponseEntity<ZoneDTO> getZoneById(@PathVariable("id") Long id);
 }
