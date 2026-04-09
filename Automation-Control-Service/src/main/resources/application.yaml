@@ -1,3 +1,39 @@
+server:
+  port: 8083
+
 spring:
   application:
-    name: Automation-Control-Service
+    name: automation-control-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/agms_automation_db?createDatabaseIfNotExist=true
+    username: root
+    password: Ijse@1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+logging:
+  level:
+    lk.ijse.Automation_Control_Service: DEBUG
+    org.hibernate.SQL: DEBUG
+
+  cloud:
+    bootstrap:
+      enabled: true
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
